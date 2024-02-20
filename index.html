@@ -91,56 +91,86 @@
     </section>
 
 
+
+
+
+
     <div id="bookingContainer">
         <div id="seatContainer"></div>
-
+    
         <div id="bookingSummary">
-            
+            <div>
+                Seats Available: <span id="seatsAvailable">40</span>
+            </div>
             <h2>Select Your Seats</h2>
-
+    
             <div id="selectedSeatsDisplay">
                 <p>Total Seats: <span id="totalSeats">0</span></p>
                 <p>Selected Seats: <span id="selectedSeats">0</span></p>
                 <p>Total Price: $<span id="totalPrice">0</span></p>
             </div>
-
-
+    
             <div id="couponInput">
                 <label for="coupon">Apply Coupon:</label>
                 <input type="text" id="coupon">
                 <button onclick="applyCoupon()" id="applyCouponBtn">Apply</button>
             </div>
-
+    
             <div>
-            <div id="passengerDetails">
-                <label for="passengerName">Passenger Name:</label>
-                <input type="text" id="passengerName">
-
-                
-                
+                <div id="passengerDetails">
+                    <label for="passengerName">Passenger Name:</label>
+                    <input type="text" id="passengerName">
+                </div>
+                <div>
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" id="phoneNumber">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email">
+                </div>
             </div>
-            <div>
-
-                <label for="phoneNumber">Phone Number:</label>
-                <input type="tel" id="phoneNumber">
-
-            </div>
-
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email">
-
-            </div>
-            
-        </div>
             <button onclick="proceedToNext()" id="nextButton">Next</button>
-
+    
             <div id="additionalOptions">
                 <button onclick="viewTermsAndConditions()">View Terms and Conditions</button>
                 <button onclick="viewCancelPolicy()">View Cancel Policy</button>
             </div>
         </div>
     </div>
+    
+    <script>
+        // JavaScript code to update seats available dynamically
+        let seatsAvailable = 40;
+    
+        function updateSeatsAvailable(numberOfSelectedSeats) {
+    seatsAvailable -= numberOfSelectedSeats;
+    document.getElementById('seatsAvailable').textContent = seatsAvailable;
+}
+        
+        // Function to proceed to the next step
+        function proceedToNext() {
+            // Perform any additional actions or validations here
+    
+            // Update seats available
+            updateSeatsAvailable();
+        }
+    
+        // Placeholder function for demonstration purposes
+        function applyCoupon() {
+            // Add coupon logic here if needed
+        }
+    
+        // Placeholder functions for demonstration purposes
+        function viewTermsAndConditions() {
+            alert("Viewing Terms and Conditions");
+        }
+    
+        function viewCancelPolicy() {
+            alert("Viewing Cancel Policy");
+        }
+    </script>
+    
 
     <style>
 

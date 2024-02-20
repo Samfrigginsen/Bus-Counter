@@ -56,7 +56,7 @@ function calculateDiscount(price) {
 
 function updateTotalPrice() {
     const totalSeatsDisplay = document.getElementById('totalSeats');
-    totalSeatsDisplay.textContent = totalSeats;
+    totalSeatsDisplay.textContent = totalSeats - selectedSeats; // Update total seats dynamically
     const totalPrice = selectedSeats * seatPrice;
     const discountedPrice = calculateDiscount(totalPrice);
     totalPriceDisplay.textContent = discountedPrice.toFixed(2);
