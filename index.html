@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaka - Ticket Booking</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-XXX" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@1.0.0/dist/full.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="bg-white text-black p-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold">Chaka Paribahan</h1>
+
+        <nav class="flex">
+            <a href="#" class="mx-2">Home</a>
+            <a href="#" class="mx-2">About</a>
+            <a href="#" class="mx-2">Destination</a>
+            <a href="#" class="mx-2">Search</a>
+
+        </nav>
+
+        <button class="bg-green-600 text-white px-4 py-2 rounded-md ">Bus</button>
+    </div>
+
+
+    <div style="position: relative; text-align: center;">
+        <img src="images/banner.jpeg" alt="Banner Image" id="banner" style="display: block; margin: 0 auto;">
+    
+        <p style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 65px; font-weight: bold; color: #fff; background-color: rgba(0, 0, 0, 0); padding: 10px;">
+            End-to-End Travel with <br> <span style="color: #4CAF50;">Chaka  Paribahan</span>
+        </p>
+    
+        <button style="position: absolute; top: 70%; left: 50%; transform: translateX(-50%); padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: #fff; border: none; cursor: pointer;">
+            Buy Tickets
+        </button>
+    </div>
+
+    <div id="statsWindows" style="margin: 0 auto;">
+        <div class="statsWindow">
+            <p>500k+</p>
+            <small style="color: gray;">Registered users</small>
+        </div>
+        <div class="statsWindow">
+            <p>1.7 Lacks</p>
+            <small style="color: gray;">Tickets sold</small>
+        </div>
+        <div class="statsWindow">
+            <p>80k+</p>
+            <small style="color: gray;">Rental Partners</small>
+        </div>
+    </div>
+    
+    <style>
+        #statsWindows {
+            display: flex;
+            justify-content: space-around; 
+        }
+    
+        .statsWindow {
+            text-align: center;
+            padding: 0 10px; 
+        }
+    </style>
+    
+    <section id="bestOffer">
+        <h2>Best Offers for You</h2>
+        <div class="offerContainer">
+            <div class="offer">
+                <img src="images/offer1.jpg" alt="Offer 1">
+                <p>Coupon Code: <span class="couponCode">NEW15</span></p>
+                <p>Discount: 15%</p>
+            </div>
+            <div class="offer">
+                <img src="images/offer2.jpg" alt="Offer 2">
+                <p>Coupon Code: <span class="couponCode">COUPLE20</span></p>
+                <p>Discount: 20%</p>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="bookingContainer">
+        <div id="seatContainer"></div>
+
+        <div id="bookingSummary">
+            
+            <h2>Select Your Seats</h2>
+
+            <div id="selectedSeatsDisplay">
+                <p>Total Seats: <span id="totalSeats">0</span></p>
+                <p>Selected Seats: <span id="selectedSeats">0</span></p>
+                <p>Total Price: $<span id="totalPrice">0</span></p>
+            </div>
+
+
+            <div id="couponInput">
+                <label for="coupon">Apply Coupon:</label>
+                <input type="text" id="coupon">
+                <button onclick="applyCoupon()" id="applyCouponBtn">Apply</button>
+            </div>
+
+            <div>
+            <div id="passengerDetails">
+                <label for="passengerName">Passenger Name:</label>
+                <input type="text" id="passengerName">
+
+                
+                
+            </div>
+            <div>
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber">
+
+            </div>
+
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+
+            </div>
+            
+        </div>
+            <button onclick="proceedToNext()" id="nextButton">Next</button>
+
+            <div id="additionalOptions">
+                <button onclick="viewTermsAndConditions()">View Terms and Conditions</button>
+                <button onclick="viewCancelPolicy()">View Cancel Policy</button>
+            </div>
+        </div>
+    </div>
+
+    <style>
+
+        
+        .statsWindow {
+            text-align: center;
+        }
+
+        #seatContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px;
+        }
+
+        #bestOffer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .offerContainer {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .offerContainer img {
+            width: 45%;
+            border-radius: 8px;
+        }
+
+        #bookingContainer {
+            display: flex;
+        }
+
+        #seatContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px;
+        }
+
+        #bookingSummary {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .seat {
+            background-color: #d8d8d8;
+            padding: 5px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .seat.selected {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+
+    <script src="script.js"></script>
+
+
+    <footer class="bg-gray-900 text-white p-8">
+        <div class="flex justify-between">
+
+            <div class="mt-8">
+                <h4 class="font-bold text-lg">Chaka - Ticket</h4>
+                <p>Chaka Paribahan is a digital platform to make your </p>
+                <p>daily commuting better.</p>
+
+            </div>
+            <div>
+                <h3 class="font-bold text-xl mb-4">Download our app</h3>
+                <ul>
+                    <li>Get it on Google play</li>
+
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
